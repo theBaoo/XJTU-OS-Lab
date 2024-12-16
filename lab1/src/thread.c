@@ -7,7 +7,7 @@
 #include <unistd.h>
 
 int counter = 0;
-int operations_times = 500000;
+int operations_times = 5000000;
 sem_t sem;
 
 int   system(const char *command);
@@ -79,7 +79,8 @@ void *thread_func_execv  (void *arg) {
     // printf("thread%d tid = %ld, pid = %d\n", *(int *)arg, pthread_self(), getpid());
     printf("thread%d tid = %ld, pid = %d\n", *(int *)arg, syscall(SYS_gettid), getpid());
 
-    char *args[] = {"/usr/bin/zsh", "-c", "cal", NULL};
+    // find sh by /usr/bin/env to exec.
+    char *args[] = {"/usr/bin/env", "sh", "-c", "cal", NULL};
     execv(args[0], args);
 
     return NULL;

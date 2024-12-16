@@ -1,0 +1,22 @@
+# lab1
+process_1
+process_2
+process_3
+process_4
+process_5
+thread_1
+thread_2
+thread_3
+thread_4
+spinlock
+system_call
+
+#lab2
+interrupt
+pipe_lock
+pipe_unlock
+mem
+testbench*
+page
+
+#lab3

@@ -12,28 +12,29 @@ process_1: process_1.c
 	@echo "======Stage 1======"
 	@$(CC) $(FLAGS) -o $@ $<
 	@echo "Run 5 times:"
-	@for i in {1..5}; do ./$@; echo; done
+	# {1..5} only works in bash and works once in fish; $(seq 1 5) even do not work
+	@for i in {1, 2, 3, 4, 5}; do ./$@; echo; done
 	@echo "Stage 1 finished."
 
 process_2: process_1.c
 	@echo "======Stage 2======"
 	@$(CC) $(FLAGS) -o $@ $< -DSTAGE_2
 	@echo "Run 5 times without wait(NULL):"
-	@for i in {1..5}; do ./$@; echo; done
+	@for i in {1, 2, 3, 4, 5}; do ./$@; echo; done
 	@echo "Stage 2 finished."
 
 process_3: process_2.c
 	@echo "======Stage 3======"
 	@$(CC) $(FLAGS) -o $@ $<
 	@echo "Run 5 times with a shared value:"
-	@for i in {1..5}; do ./$@; echo; done
+	@for i in {1, 2, 3, 4, 5}; do ./$@; echo; done
 	@echo "Stage 3 finished."
 
 process_4: process_2.c
 	@echo "======Stage 4======"
 	@$(CC) $(FLAGS) -o $@ $< -DSTAGE_4
 	@echo "Run 5 times with operaion before return:"
-	@for i in {1..5}; do ./$@; echo; done
+	@for i in {1, 2, 3, 4, 5}; do ./$@; echo; done
 	@echo "Stage 4 finished."
 
 process_5: process_3.c
@@ -60,7 +61,7 @@ thread_%: thread.c
 	@echo "======STAGE $*======"
 	@$(CC) $(FLAGS) -o $@ $< -lpthread -DSTAGE_$*
 	@echo "Run 5 times:"
-	@for i in {1..5}; do ./$@; echo; done
+	@for i in {1, 2, 3, 4, 5}; do ./$@; echo; done
 	@echo "Stage $* finished."
 
 
@@ -69,11 +70,11 @@ spinlock: spinlock.c
 
 	@echo "======Unlock======"
 	@$(CC) $(FLAGS) -o $@ $< -lpthread
-	@for i in {1..5}; do ./$@; echo; done
+	@for i in {1, 2, 3, 4, 5}; do ./$@; echo; done
 
 	@echo "======Locked======"
 	@$(CC) $(FLAGS) -o $@ $< -DSPIN_LOCK -lpthread
-	@for i in {1..5}; do ./$@; echo; done
+	@for i in {1, 2, 3, 4, 5}; do ./$@; echo; done
 
 clean:
 	find . -type f -executable -delete
@@ -83,7 +84,7 @@ clean:
 # 	@echo "======STAGE 1======"
 # 	@$(CC) $(FLAGS) -o $@ $< -lpthread -DSTAGE_1
 # 	@echo "Run 5 times:"
-# 	@for i in {1..5}; do ./$@; done
+# 	@for i in {1, 2, 3, 4, 5}; do ./$@; done
 # 	@echo "Stage 1 finished."
 
 # thread_2: thread.c

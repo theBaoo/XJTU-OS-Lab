@@ -11,6 +11,3 @@ pthread_self()并不返回“可读”的tid, 可以使用syscall(SYS_gettid)
 操作规模小时, 现象不明显
 ![alt text](images/unlock1.png)
 ![alt text](images/unlock2.png)
-
-## makefile
-命令必须TAB开头

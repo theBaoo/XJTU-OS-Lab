@@ -38,3 +38,4 @@ void create_testbench(const char *filename, const int algorithm) {
     quit();
 
     fclose(file);
+}

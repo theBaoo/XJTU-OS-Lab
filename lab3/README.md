@@ -14,7 +14,7 @@
     - utrap for store trapframe ✅
     - 
 - improve shell
-    - make init start sh.
+    - make init start sh.       ✅
 # usages
 - `make qemu`: load and execute the kernel
 - `make qemu-gdb` and in another terminal `gdb-multiarch -x init.py`: debug the kernel

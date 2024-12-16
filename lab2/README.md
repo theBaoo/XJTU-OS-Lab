@@ -97,11 +97,3 @@ char b[] = "Hello " TOTOSTRING(A) "\n"; // A will.
 ## page
 FIFO的命中率与LRU的差不多?
 如何构造具有时间局部性的序列? 设定固定的序列集
-
-# Learnings
-## makefile
-
-# process
-11.9 finish page framework
-11.10 further finish
-to be done: 两种算法公用一个框架, 只需要抽象一个替换函数.

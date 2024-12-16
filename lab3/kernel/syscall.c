@@ -15,7 +15,6 @@ int syscalls_num = sizeof(syscalls) / sizeof(syscalls[0]);
 
 void syscall() {
     int syscall_num;
-    // asm volatile("mv %0, a7" : "=r"(syscall_num));
     syscall_num = current->trapframe.a7;
 
     if (syscall_num > 0 && syscall_num <= syscalls_num 

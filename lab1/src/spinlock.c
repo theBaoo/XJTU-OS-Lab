@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <pthread.h>
 
-#define OP_TIMES 50000
+#define OP_TIMES 5000000
 
 struct spinlock_t {
     int flag;

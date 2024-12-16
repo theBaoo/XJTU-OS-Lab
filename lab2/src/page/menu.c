@@ -68,6 +68,7 @@ void change_sequence() {
 
 void wait_key() {
     printf("Press any key to continue...\n");
+    // one to consume the newline character, one to wait a key
     getchar();
     getchar();
 }

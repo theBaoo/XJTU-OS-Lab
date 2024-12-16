@@ -1,14 +1,11 @@
 #ifndef PAGE_H
 #define PAGE_H
-/**
- * definations for data structures and algorithms used.
- */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-#define PP 60    /* process page needed   */
-#define MP 20     /* memory page available */
+#define PP 12    /* process page needed   */
+#define MP 3     /* memory page available */
 #define SIZE 12  /* size of sequence      */
 #define P_SIZE 6
 #define P_NUM  6
@@ -46,15 +43,18 @@ extern int  sub_process_page[P_NUM][P_SIZE];
 extern int  sequence[SIZE];
 
 int memory_full();
+// used in simulation
+extern Page *(*memory_take_place)();
 Page *memory_get();
 Page *memory_find_lru();
-extern Page *(*memory_take_place)();
 
+// used in simulation
 void generate_sequence();
 void random_sequence();
 void by_hand_sequence();
 // read ./sequence
 void read_file_sequence();
+
 void init_memory();
 void init_process();
 void execute_algorithm();

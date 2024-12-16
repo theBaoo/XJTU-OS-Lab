@@ -19,6 +19,7 @@ int main()
     pid_t pid1 = -1, pid2 = -1;
     sem_t *sem1, *sem2;
 
+    // make sure the child processes are prepared to receive signals by semaphores
     sem1 = sem_open("/sem_example", O_CREAT, 0644, 0);
     if (sem1 == SEM_FAILED) {
         perror("sem_open");

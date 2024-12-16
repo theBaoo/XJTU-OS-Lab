@@ -139,7 +139,7 @@ void display_menu() {
     printf("\n");
     printf("======================================\n");
     for (int i = 0; i < menu_items; i++) {
-        printf(menu[i]);
+        printf("%s", menu[i]);
     }
     printf("======================================\n");
 }

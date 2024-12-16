@@ -44,17 +44,17 @@ int sh() {
     // }
     // uwait(0);
     while (1) {
-        uprintf("😫 ");
+        uprintf("🥸  ");
         int num = gets(buf, MAX_CMD_LEN);
         parse_cmd(buf, num);
 
-        if (ufork() == 0) {
-            uexec("test", (uint64)test);
-            uprintf("exec failed\n");
-            while (1);
-        } else {
-            uwait(0);
-        }
+        // if (ufork() == 0) {
+        //     uexec("test", (uint64)test);
+        //     uprintf("exec failed\n");
+        //     while (1);
+        // } else {
+        //     uwait(0);
+        // }
 
     }
 }
